@@ -1,7 +1,8 @@
 ﻿namespace ColumnsGame.Model.Interfaces
 {
-    interface IRotatableColumnItem
+    public interface IRotatableColumnItem : IColumnItem
     {
+        public bool IsHorizontal { get; set; }
         public void Rotate();
         public void UnRotate();
     }

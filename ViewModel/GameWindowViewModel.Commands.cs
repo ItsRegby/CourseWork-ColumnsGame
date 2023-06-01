@@ -1,4 +1,5 @@
-﻿using ColumnsGame.Enums;
+﻿using ColumnsGame.Controls;
+using ColumnsGame.Enums;
 using ColumnsGame.Model;
 using Prism.Commands;
 using System.Windows;
@@ -8,7 +9,6 @@ namespace ColumnsGame.ViewModel
 {
     public partial class GameWindowViewModel
     {
-
         public DelegateCommand StartGameCommand { get; set; }
         public DelegateCommand PauseGameCommand { get; set; }
         public DelegateCommand StopGameCommand { get; set; }
@@ -33,6 +33,7 @@ namespace ColumnsGame.ViewModel
 
         private void startGame()
         {
+            musicPlayer.Play("Title.mp3");
             createNewGameBoard();
 
             GameRunnig = true;
@@ -47,6 +48,7 @@ namespace ColumnsGame.ViewModel
 
             updateButtonCanExecute();
         }
+        
 
         private bool startGameCanExecute()
         {
@@ -57,15 +59,17 @@ namespace ColumnsGame.ViewModel
         private void stopGame()
         {
             GameRunnig = false;
-
+            musicPlayer.Play("Pause.mp3");
             if (MessageBox.Show("Завершити гру?", "Stop game", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 GameOver = true;
                 Board.StopGame();
+                musicPlayer.Play("Game_Over.mp3");
             }
             else
             {
                 GameRunnig = true;
+                musicPlayer.Play("Title.mp3");
             }
 
             updateButtonCanExecute();
@@ -80,9 +84,10 @@ namespace ColumnsGame.ViewModel
         private void pauseGame()
         {
             GameRunnig = false;
+            musicPlayer.Play("Pause.mp3");
             MessageBox.Show("Продовжити гру?", "Pause game", MessageBoxButton.OK, MessageBoxImage.Question);
             GameRunnig = true;
-
+            musicPlayer.Play("Title.mp3");
             updateButtonCanExecute();
         }
 

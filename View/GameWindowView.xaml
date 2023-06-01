@@ -20,6 +20,7 @@
         <converter:InvertBoolConverter x:Key="invertBoolConverter"/>
     </Window.Resources>
 
+    
     <Grid Background="DimGray">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -53,7 +54,7 @@
                    VerticalAlignment="Center" HorizontalAlignment="Center"  
                    FontSize="24" FontWeight="Bold"
                    Foreground="Red"
-                   Background="White"
+                   Background="Black"
                    Padding="10"/>
 
         <Grid Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Background="White" >
@@ -100,7 +101,7 @@
                        Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" FontSize="11" Margin="10,0,16,0" HorizontalAlignment="Right"/>
 
 
-            <GroupBox Header="Settings" Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="3"  Margin="16,32,16,16" >
+            <GroupBox Header="Settings" Grid.Row="4" Grid.Column="0"  Grid.ColumnSpan="3"  Margin="16,38,16,10" >
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*" />

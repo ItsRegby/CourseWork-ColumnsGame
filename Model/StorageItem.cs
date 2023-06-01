@@ -39,9 +39,9 @@ namespace ColumnsGame.Model
 
 
         // Determines whether the storage contains item
-        public bool Contains(int row, int column, ColumnItem columnItem)
+        public bool Contains(int row, int column, IColumnItem columnItem)
         {
-            if (columnItem is RotatableColumnItem rotatebleColum && rotatebleColum.IsHorizontal)
+            if (columnItem is IRotatableColumnItem rotatebleColum && rotatebleColum.IsHorizontal)
             {
                 bool middle = _cells.ContainsKey(column * columnMultiple + row);
                 bool right = _cells.ContainsKey((column - 1) * columnMultiple + row);
@@ -55,9 +55,9 @@ namespace ColumnsGame.Model
 
 
         // Add column item to storage
-        public void Add(ColumnItem item)
+        public void Add(IColumnItem item)
         {
-            if (item is RotatableColumnItem rotatableItem && rotatableItem.IsHorizontal)
+            if (item is IRotatableColumnItem rotatableItem && rotatableItem.IsHorizontal)
             {
                 _cells.TryAdd(((rotatableItem.Column - 1) * columnMultiple) + rotatableItem.Row, item.TopColor);
                 _cells.TryAdd((rotatableItem.Column * columnMultiple) + rotatableItem.Row, item.MiddleColor);

@@ -3,6 +3,7 @@ using System;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows;
+using ColumnsGame.Controls;
 
 namespace ColumnsGame.View
 {

@@ -1,4 +1,5 @@
-﻿using ColumnsGame.Model;
+﻿using ColumnsGame.Controls;
+using ColumnsGame.Model;
 using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -17,6 +18,7 @@ namespace ColumnsGame.ViewModel
         private bool _gameRunnig;
         private bool _gameOver;
         private GameBoard _board;
+        MusicPlayer musicPlayer = new MusicPlayer();
 
         // Get or Set GameBoard
         public GameBoard Board
@@ -111,7 +113,10 @@ namespace ColumnsGame.ViewModel
                 _gameOver = value;
 
                 if (_gameOver)
+                {
                     GameRunnig = false;
+                    musicPlayer.Play("Game_Over.mp3");
+                }
 
                 RaisePropertyChanged();
                 RaisePropertyChanged(nameof(GameRunnig));

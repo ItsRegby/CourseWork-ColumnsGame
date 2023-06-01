@@ -4,6 +4,7 @@ using System.Windows.Media;
 using ColumnsGame.Enums;
 using ColumnsGame.Helpers;
 using ColumnsGame.Model;
+using ColumnsGame.Model.Interfaces;
 
 namespace ColumnsGame.Controls
 {
@@ -132,7 +133,7 @@ namespace ColumnsGame.Controls
             if (Board.ColumnItem == null)
                 return;
 
-            if (Board.ColumnItem is RotatableColumnItem rotatableColumnItem && rotatableColumnItem.IsHorizontal)
+            if (Board.ColumnItem is IRotatableColumnItem rotatableColumnItem && rotatableColumnItem.IsHorizontal)
             {
                 drawRectangle(Board.ColumnItem.Row, Board.ColumnItem.Column - 1, Board.ColumnItem.TopColor);
                 drawRectangle(Board.ColumnItem.Row, Board.ColumnItem.Column, Board.ColumnItem.MiddleColor);

@@ -1,4 +1,5 @@
-﻿using ColumnsGame.Enums;
+﻿using ColumnsGame.Controls;
+using ColumnsGame.Enums;
 using ColumnsGame.Helpers;
 using ColumnsGame.Model.Interfaces;
 using System;
@@ -6,26 +7,30 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
+using ColumnsGame.Model;
 
 namespace ColumnsGame.Model
 {
     public class GameBoard : INotifyPropertyChanged
     {
 
-        public static readonly int MaxRowsCount = 100;
+        public static readonly int MaxRowsCount = 30;
         public static readonly int MinRowsCount = 10;
         public static readonly int DefaultRowsCount = 13;
 
-        public static readonly int MaxColumnsCount = 100;
+        public static readonly int MaxColumnsCount = 30;
         public static readonly int MinColumnsCount = 5;
         public static readonly int DefaultColumnsCount = 6;
 
         public static readonly int MaxColorsCount = 10;
         public static readonly int MinColorsCount = 3;
         public static readonly int DefaultColorsCount = 5;
+
+        MusicPlayer musicPlayer = new MusicPlayer();
 
 
         //  The event is invoked when it is necessary to refresh the UI
@@ -80,8 +85,8 @@ namespace ColumnsGame.Model
 
 
         // Get or Set falling column item
-        public ColumnItem ColumnItem { get; set; }
-        public ColumnItem NextColumnItem { get; set; }    
+        public IColumnItem ColumnItem { get; set; }
+        public IColumnItem NextColumnItem { get; set; }
 
         // Create a game board with parameter 
         public GameBoard(int rowsCount, int columnsCount, int colorCount, bool animation)
@@ -165,7 +170,7 @@ namespace ColumnsGame.Model
         }
         public void RotateItem()
         {
-            if (ColumnItem is RotatableColumnItem rotatable)
+            if (ColumnItem is IRotatableColumnItem rotatable)
             {
                 rotatable.Rotate();
                 if(!validateMove())
@@ -180,10 +185,10 @@ namespace ColumnsGame.Model
         {
             if (ColumnItem == null)
                 return true;
-
             ColumnItem.Row--;
             if (!validateMove())
             {
+                musicPlayer.Play("BEEP.mp3");
                 ColumnItem.Row++;
 
                 // check game over
@@ -191,19 +196,18 @@ namespace ColumnsGame.Model
                 {
                     return false;
                 }
-
                 _storageItems.Add(ColumnItem);
-                bool isHorizonat = (ColumnItem is RotatableColumnItem rotatable) ? rotatable.IsHorizontal : false; 
+                bool isHorizonat = (ColumnItem is IRotatableColumnItem rotatable) ? rotatable.IsHorizontal : false; 
                 ColumnItem = null;
                 refreshUI();
 
                 // check valid items, delete, and fall down
                 await Task.Run(() =>
                 {
-                    //Залупа анімується тут!
+                    //anime here
                     if (isHorizonat)
                     {
-                        //animateDeleteItems(_storageItems.GetCells().ToDictionary(kv => kv.Key, kv => kv.Value));
+                        animateDeleteItems(_storageItems.GetCells().ToDictionary(kv => kv.Key, kv => kv.Value));
                         _storageItems.FallDownItems();
                     }
                     while (checkItemsForRemove())
@@ -228,7 +232,7 @@ namespace ColumnsGame.Model
             ColumnItem = NextColumnItem;
             NextColumnItem = GenerateRandomColumnItem();
         }
-        private ColumnItem GenerateRandomColumnItem()
+        private IColumnItem GenerateRandomColumnItem()
         {
             var random = new Random();
             var itemType = (ColumnItemType)random.Next(3);
@@ -280,7 +284,7 @@ namespace ColumnsGame.Model
         // Validate the column item move 
         private bool validateMove()
         {
-            if(ColumnItem is RotatableColumnItem rotatebleColum && rotatebleColum.IsHorizontal)            
+            if(ColumnItem is IRotatableColumnItem rotatebleColum && rotatebleColum.IsHorizontal)            
                 if (ColumnItem.Row < 0 || (ColumnItem.Column + 1) > (ColumnsCount - 1) || (ColumnItem.Column - 1 ) < 0)
                     return false;
             
@@ -315,7 +319,7 @@ namespace ColumnsGame.Model
         // Animate deleted item (change color to transparent and back )
         private void animateDeleteItems(Dictionary<int, ItemColor> dicDelete)
         {
-
+            musicPlayer.Play("StageClear.wav");
             for (int i = 0; i < 4; i++)
             {
                 _storageItems.SetItemsTransparentColor(dicDelete);
@@ -331,7 +335,7 @@ namespace ColumnsGame.Model
         // test method for random fill board
         public void FillBoard_NOT_USE()
         {
-            for (int row = 0; row < RowsCount - 4; row++)
+            for (int row = 0; row < RowsCount - 6; row++)
             {
                 for (int col = 0; col < ColumnsCount; col ++)
                 {
