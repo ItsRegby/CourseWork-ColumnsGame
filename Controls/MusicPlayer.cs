@@ -19,9 +19,9 @@ namespace ColumnsGame.Controls
 
         public void Play(string fileName)
         {
-            player.URL = $"E:\\Programs\\Visual\\Projects\\ColumnsGame\\Music\\{fileName}";
+            player.URL = $"D:\\Projects\\CourseWork-ColumnsGame\\Music\\{fileName}";
             player.controls.play();
-            if (fileName == "Title.mp3" || fileName == "Menu.mp3")
+            if (fileName == "Title.mp3")
             {
                 player.settings.setMode("loop", true);
             }

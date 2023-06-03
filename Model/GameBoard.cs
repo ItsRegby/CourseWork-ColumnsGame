@@ -207,7 +207,6 @@ namespace ColumnsGame.Model
                     //anime here
                     if (isHorizonat)
                     {
-                        animateDeleteItems(_storageItems.GetCells().ToDictionary(kv => kv.Key, kv => kv.Value));
                         _storageItems.FallDownItems();
                     }
                     while (checkItemsForRemove())

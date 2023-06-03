@@ -7,6 +7,20 @@
         {
             
         }
+        public override void FlipColors()
+        {
+            // No color flipping needed for StandardColumnItem
+        }
+
+        public override void Rotate()
+        {
+            // No rotation needed for StandardColumnItem
+        }
+
+        public override void UnRotate()
+        {
+            // No rotation needed for StandardColumnItem
+        }
 
         public override string ToString()
         {

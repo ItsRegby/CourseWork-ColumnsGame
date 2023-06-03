@@ -10,11 +10,20 @@ namespace ColumnsGame.Model
 
         }
 
-        public void FlipColors()
+        public override void FlipColors()
         {
             var temp = TopColor;
             TopColor = BottonColor;
             BottonColor = temp;
+        }
+        public override void Rotate()
+        {
+            // No rotation needed for FlippableColumnItem
+        }
+
+        public override void UnRotate()
+        {
+            // No rotation needed for FlippableColumnItem
         }
 
         public override string ToString()

@@ -21,7 +21,7 @@ namespace ColumnsGame.Model
         private readonly int WEST = 1 << 1;
         private readonly int SOUTH = 1 << 2;
         private readonly int EAST = 1 << 3;
-        public void UnRotate()
+        public override void UnRotate()
         {
             if (IsHorizontal)
             { 
@@ -36,7 +36,7 @@ namespace ColumnsGame.Model
                 Row++;
             }
         }
-        public void Rotate()
+        public override void Rotate()
         {
             if (IsHorizontal)
             {
@@ -73,6 +73,10 @@ namespace ColumnsGame.Model
                     position = WEST;
                 }
             }
+        }
+        public override void FlipColors()
+        {
+            // No color flipping needed for RotatableColumnItem
         }
 
         public override string ToString()

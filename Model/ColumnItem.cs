@@ -38,5 +38,8 @@ namespace ColumnsGame.Model
             MiddleColor = BottonColor;
             BottonColor = pom;
         }
+        public abstract void FlipColors();
+        public abstract void Rotate();
+        public abstract void UnRotate();
     }
 }

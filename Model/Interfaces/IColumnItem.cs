@@ -13,6 +13,7 @@ namespace ColumnsGame.Model
         public ItemColor BottonColor { get; set; }
         public void SwapColorDown();
         public void SwapColorUP();    
+
         
     }
 }
