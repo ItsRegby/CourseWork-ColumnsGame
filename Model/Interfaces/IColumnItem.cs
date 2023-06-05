@@ -11,9 +11,8 @@ namespace ColumnsGame.Model
         public ItemColor TopColor { get; set; }
         public ItemColor MiddleColor { get; set; }
         public ItemColor BottonColor { get; set; }
-        public void SwapColorDown();
-        public void SwapColorUP();    
+        public abstract void SwapColorDown();
+        public abstract void SwapColorUP();
 
-        
     }
 }

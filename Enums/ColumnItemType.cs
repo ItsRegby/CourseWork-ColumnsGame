@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ColumnsGame.Enums
 {
-    // Enum column type
+    // Enum column type 
     public enum ColumnItemType
     {
         Standard,

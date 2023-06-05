@@ -186,7 +186,7 @@ namespace ColumnsGame.ViewModel
                 GameOver = true; 
 
             // speed-up game
-            SpeedGame = StartSpeed + (Board.Score / 250);
+            SpeedGame = StartSpeed + (Board.Score / 200);
 
         }
 

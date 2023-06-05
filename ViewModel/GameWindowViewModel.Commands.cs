@@ -60,7 +60,7 @@ namespace ColumnsGame.ViewModel
         {
             GameRunnig = false;
             musicPlayer.Play("Pause.mp3");
-            if (MessageBox.Show("Завершити гру?", "Stop game", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            if (MessageBox.Show("Finish the game?", "Stop game", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
                 GameOver = true;
                 Board.StopGame();
@@ -85,7 +85,7 @@ namespace ColumnsGame.ViewModel
         {
             GameRunnig = false;
             musicPlayer.Play("Pause.mp3");
-            MessageBox.Show("Продовжити гру?", "Pause game", MessageBoxButton.OK, MessageBoxImage.Question);
+            MessageBox.Show("Continue the game?", "Pause game", MessageBoxButton.OK, MessageBoxImage.Question);
             GameRunnig = true;
             musicPlayer.Play("Title.mp3");
             updateButtonCanExecute();

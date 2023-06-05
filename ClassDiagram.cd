@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ColumnsGame.Model.ColumnItem">
+    <Position X="5.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgACAAAAAAAAAAAABACAAiEAAAAgAAAAAAAAAAAwA=</HashCode>
+      <FileName>Model\ColumnItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ColumnsGame.Model.RotatableColumnItem">
+    <Position X="5.5" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAgAAAAAAFAAAQIAAgEAAAAAAAQgAAAAAAAAA=</HashCode>
+      <FileName>Model\RotatableColumnItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ColumnsGame.Model.StandardColumnItem">
+    <Position X="7.75" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAEAAAAAAAgEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\StandartColumnItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColumnsGame.Model.StorageItems">
+    <Position X="15.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIBAAAgAAgAAAARAAAQFAAAwAAAAAAAAAAAAEBQAAA=</HashCode>
+      <FileName>Model\StorageItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColumnsGame.Model.FlippableColumnItem">
+    <Position X="3.25" Y="4.75" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAEAAAAAAAgEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\FlippableColumnItem.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ColumnsGame.ViewModel.GameWindowViewModel">
+    <Position X="13.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>GBACoQAiACBEBmAAHCAAAoABkCDAAgAsQGqKICAQIQI=</HashCode>
+      <FileName>ViewModel\GameWindowViewModel.Commands.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ColumnsGame.View.GameWindowView">
+    <Position X="0.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAQAACAABAAAIAAAAIQAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>View\GameWindowView.xaml.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="System.Windows.Window" Collapsed="true">
+    <Position X="3.25" Y="0.75" Width="2" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="ColumnsGame.Model.GameBoard">
+    <Position X="11.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ApQBSQBCAIBBAGhgEAYAwgAgwABQAAIoQCCABggSKAA=</HashCode>
+      <FileName>Model\GameBoard.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ColumnsGame.Helpers.ColorHelper">
+    <Position X="8.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAABgAAAAAAAAAAAAAAgAAAAACAAAAAAAABAgA=</HashCode>
+      <FileName>Helpers\ColorHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ColumnsGame.Controls.BoardControl">
+    <Position X="7.75" Y="10" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABBAAAIAAAAABAAMoAAAAAQBAACAAAQAAAAAICAAACA=</HashCode>
+      <FileName>Controls\BoardControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Windows.FrameworkElement" Collapsed="true">
+    <Position X="9.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier />
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="ColumnsGame.Controls.MusicPlayer">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABoAAAAAAAAAA=</HashCode>
+      <FileName>Controls\MusicPlayer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="ColumnsGame.Enums.ColumnItemType">
+    <Position X="0.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Enums\ColumnItemType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ColumnsGame.Enums.ItemColor">
+    <Position X="2.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Enums\ItemColor.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="ColumnsGame.Enums.UpDownButtonChange">
+    <Position X="4.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>Enums\UpDownButtonChange.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
